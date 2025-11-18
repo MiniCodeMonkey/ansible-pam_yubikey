@@ -51,5 +51,5 @@
     mode: 0600
     owner: "{{ yubikey_user.name }}"
     group: "{{ yubikey_user_group }}"
-  with_items: "{{ yubikey_user.challenges  }}"
-  when: yubikey_user.challenges|default([])|length
+  with_items: "{{ yubikey_user.challenges | default([]) }}"
+  when: yubikey_user.challenges | default([]) | length > 0

@@ -12,7 +12,7 @@
   with_items: "{{ yubikey_users }}"
   loop_control:
     loop_var: yubikey_user
-  when: yubikey_users|default([])|length
+  when: yubikey_users|default([])|length > 0
 
 - name: Configure pam for OpenSSH Server
   include_tasks: configure-sshd.yml
